@@ -65,13 +65,14 @@ const photos = [
   ];
 
 const ulContainer = document.querySelector('.gallery')
-console.log(ulContainer)
-
 const cardsMarkUp = creatGalleryMarkUp(photos)
-// const cardsMarkUpTwo = onClickMarkUp(photos)
+const newClass = document.querySelector('.js-lightbox')
+const imgModl = document.querySelector('.lightbox__image')
+const closeModalBtn = document.querySelector('.lightbox__button')
 
 ulContainer.insertAdjacentHTML('beforeend', cardsMarkUp)
-ulContainer.addEventListener('click', onClickMarkUp)
+ulContainer.addEventListener('click', addClass)
+closeModalBtn.addEventListener('click', closeModal)
 
 
 function creatGalleryMarkUp(photos) {
@@ -93,37 +94,26 @@ function creatGalleryMarkUp(photos) {
 
 }
 
+function addClass(evt){
+  evt.preventDefault();
+  if(evt.target.nodeName !== 'IMG'){
+    return
+  }
+  newClass.classList.add('is-open')
+  const bigImg = evt.target.dataset.source
+  const altDescr = evt.target.alt
 
-// // Первое сделать так , чтобы при клике на кртинку открывалась модалка
+  imgModl.setAttribute('src', bigImg)
+  imgModl.setAttribute('alt', altDescr)
+  
+}
 
-
-
-function onClickMarkUp() {
-
-const newClass = document.querySelector('.js-lightbox')
-newClass.classList.add('is-open')
-
-
-  // console.log(newClass)
-  //  if(evt.target.nodeName !== 'IMG'){
-  //    return
-  //  }
- const clean = document.getElementsByClassName('.lightbox__image')
- clean.setAttribute('src', "");
-
-
+function closeModal() {
+  imgModl.setAttribute('src', "")
+  imgModl.setAttribute('alt', "")
+  newClass.classList.remove('is-open')
+  
 };
 
-// const img = evt.target;
-// const tag = img.dataset.value;
-// const isOpen = img.classList.contains('is-open');
 
-// if (isOpen) {
-//     selectedTags.delete(tag);
-// } else {
-//     selectedTags.add(tag);
-// }
-
-// img.classList.toggle('is-open');
-// console.log(onClickMarkUp);
 
