@@ -1,18 +1,20 @@
-function betterThanAverage(classPoints, yourPoints) {
-  // Your code here
-  const total = classPoints.reduce((acc, number) => acc + number, 0)/classPoints.length;
-return total < yourPoints ? true : false;
+function arrayMadness(a, b) {
+  // Ready, get set, GO!!!
+return b.length < a.length ? false : true ; 
 
+// const isAllOnline = a.every(number => b.length > number);
+//  console.log(isAllOnline);
 }
+// Даны два целочисленных массива a, b , оба length >= 1, создать программу , которая возвращает , 
+// true если сумма квадратов каждого элемента aявляется строго больше , 
+// чем в сумме кубов каждого элемента b.
 
-
-
-    console.log((betterThanAverage([2, 3], 5)));//, true , 5
-
-    console.log((betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)));//, true , 75
-
-    console.log((betterThanAverage([12, 23, 34, 45, 56, 67, 78, 89, 90], 9)));//, false , 9
-
+  console.log((arrayMadness([4,5,6],[1,2,3])));//true
+  console.log((arrayMadness([5,6,7],[4,5,6])));//false
+  console.log((arrayMadness([4,5,6],[3,4,5])));//false
+  console.log((arrayMadness([3,4,5],[2,3,4])));//false
+  console.log((arrayMadness([2,3,4],[1,2,3])));//false
+  console.log((arrayMadness([1,2,3],[0,1,2])));//true
  //======================================================
  // Задачка для собесов где надо сделать реверс без использования reverse
 //  weirdReverse=a=>a.sort(n=>1)
